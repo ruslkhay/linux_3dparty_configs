@@ -84,18 +84,23 @@ handle_extension() {
 
         ## SVG — render with chafa
         svg)
-            chafa --format=symbols --size="${PV_WIDTH}x${PV_HEIGHT}" \
+            chafa --animate=off --size="${PV_WIDTH}x${PV_HEIGHT}" \
                 -- "${FILE_PATH}" && exit 4
             exit 1;;
 
         ## PDF — render first page as image with chafa, fallback to text
         pdf)
-            local _tmpimg
-            _tmpimg="$(mktemp /tmp/ranger-pdf-XXXXXX.png)"
-            pdftoppm -f 1 -l 1 -scale-to-x 1000 -scale-to-y -1 \
-                -singlefile -png -- "${FILE_PATH}" "${_tmpimg%.png}" 2>/dev/null \
-                && chafa --format=symbols --size="${PV_WIDTH}x${PV_HEIGHT}" \
-                    -- "${_tmpimg}" && rm -f "${_tmpimg}" && exit 4
+            local _tmpbase _tmpimg
+            _tmpbase="$(mktemp -u /tmp/ranger-pdf-XXXXXX)"
+            _tmpimg="${_tmpbase}.png"
+            if pdftoppm -f 1 -l 1 -scale-to-x 1000 -scale-to-y -1 \
+                -singlefile -png -- "${FILE_PATH}" "${_tmpbase}" 2>/dev/null \
+                && [[ -f "${_tmpimg}" ]]; then
+                chafa --animate=off --size="${PV_WIDTH}x${PV_HEIGHT}" \
+                    -- "${_tmpimg}"
+                rm -f "${_tmpimg}"
+                exit 4
+            fi
             rm -f "${_tmpimg}"
             pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - | \
               fmt -w "${PV_WIDTH}" && exit 5
@@ -167,7 +172,7 @@ handle_image() {
 
         ## Image — render with chafa (works in GNOME Terminal)
         image/*)
-            chafa --format=symbols --size="${PV_WIDTH}x${PV_HEIGHT}" \
+            chafa --animate=off --size="${PV_WIDTH}x${PV_HEIGHT}" \
                 -- "${FILE_PATH}" && exit 4
             exit 1;;
 
@@ -325,7 +330,7 @@ handle_mime() {
 
         ## Image
         image/*)
-            chafa --format=symbols --size="${PV_WIDTH}x${PV_HEIGHT}" \
+            chafa --animate=off --size="${PV_WIDTH}x${PV_HEIGHT}" \
                 -- "${FILE_PATH}" && exit 4
             exit 1;;
 
