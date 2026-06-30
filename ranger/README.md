@@ -59,8 +59,12 @@ git submodule update --init --recursive
 | `zj` | Jump to a frecent directory (zoxide) |
 | `ex` | Extract selected archive |
 | `ec` | Compress selected files |
-| `ts` | Open file in a tmux horizontal split (nvim) |
-| `tv` | Open file in a tmux vertical split (nvim) |
+| `xo` | Open file in nvim — tmux horizontal split |
+| `xO` | Open file in nvim — tmux vertical split |
+| `x\|` | Split current pane vertically |
+| `x-` | Split current pane horizontally |
+| `xe` | Open file in a new tmux window |
+| `xc` | Sync ranger's cwd to the other tmux pane |
 | `gs` | `git status` of current directory |
 | `gl` | `git log --oneline` (last 15 commits) |
 | `gd` | `git diff` |
