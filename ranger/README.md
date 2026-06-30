@@ -56,7 +56,8 @@ git submodule update --init --recursive
 | Key | Action |
 |-----|--------|
 | `zj` | Jump to a frecent directory (zoxide) |
-| `ex` | Extract selected archive |
+| `ex` | Extract archive into a subdirectory (named after the archive) |
+| `eX` | Extract archive flat — prompts for optional destination |
 | `ec` | Compress selected files |
 | `gs` | `git status` of current directory |
 | `gl` | `git log --oneline` (last 15 commits) |
