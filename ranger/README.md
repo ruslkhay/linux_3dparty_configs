@@ -9,13 +9,14 @@ directory jumping.
 Install all dependencies at once:
 
 ```bash
-sudo apt install bat atool chafa python3-nbconvert zoxide
+sudo apt install bat atool chafa python3-nbconvert zoxide 7zip
 ```
 
 | Tool | Purpose |
 |------|---------|
 | `bat` (runs as `batcat` on Ubuntu) | Syntax-highlighted code preview |
 | `atool` | Preview and extract archives (tar, zip, 7z, rar, …) |
+| `7zip` (`7zz`) | Extract AES-256 encrypted ZIPs (ZIP v5.1) that `unzip` cannot handle |
 | `chafa` | Render images as Unicode art (works in GNOME Terminal) |
 | `python3-nbconvert` | Convert Jupyter notebooks for preview |
 | `zoxide` | Smart directory jumping (learns frequent paths) |
