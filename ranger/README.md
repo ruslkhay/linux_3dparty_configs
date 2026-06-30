@@ -36,7 +36,6 @@ git submodule update --init --recursive
 |--------|---------|
 | [ranger-devicons2](https://github.com/cdump/ranger-devicons2) | File icons synced from nvim-web-devicons |
 | [ranger-archives](https://github.com/maximtrp/ranger-archives) | Extract / compress archives from within ranger |
-| [ranger_tmux](https://github.com/joouha/ranger_tmux) | Open files in tmux panes |
 | [ranger-zoxide](https://github.com/jchook/ranger-zoxide) | Jump to frecent directories via zoxide |
 | ranger_git *(built-in)* | Git status indicators in file listing |
 
@@ -59,12 +58,6 @@ git submodule update --init --recursive
 | `zj` | Jump to a frecent directory (zoxide) |
 | `ex` | Extract selected archive |
 | `ec` | Compress selected files |
-| `xo` | Open file in nvim — tmux horizontal split |
-| `xO` | Open file in nvim — tmux vertical split |
-| `x\|` | Split current pane vertically |
-| `x-` | Split current pane horizontally |
-| `xe` | Open file in a new tmux window |
-| `xc` | Sync ranger's cwd to the other tmux pane |
 | `gs` | `git status` of current directory |
 | `gl` | `git log --oneline` (last 15 commits) |
 | `gd` | `git diff` |

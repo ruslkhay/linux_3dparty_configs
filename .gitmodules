@@ -4,9 +4,6 @@
 [submodule "ranger/plugins/ranger_archives"]
 	path = ranger/plugins/ranger_archives
 	url = https://github.com/maximtrp/ranger-archives
-[submodule "ranger/plugins/ranger_tmux"]
-	path = ranger/plugins/ranger_tmux
-	url = https://github.com/joouha/ranger_tmux
 [submodule "ranger/plugins/ranger_zoxide"]
 	path = ranger/plugins/ranger_zoxide
 	url = https://github.com/jchook/ranger-zoxide
